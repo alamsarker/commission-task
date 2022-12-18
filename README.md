@@ -4,7 +4,7 @@ Commission Calculator for deposit and withdrawal operation of private and busine
 
 ## Installation & Run
 
-* Pull the repository ``
+* Pull the repository `git@github.com:alamsarker/commission-task.git`
 * Start Container: `make start`
 * Install Composer : `make composer-install`
 * Run the cli: `make calculate-commission`
