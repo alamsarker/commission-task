@@ -1,0 +1,16 @@
+version: '3.5'
+networks:
+  basic:
+    driver:
+      bridge
+
+services:
+  fpm:
+    container_name: calculator
+    networks:
+      - basic
+    volumes:
+      - .:/var/www/html
+    build:
+      context: .
+      dockerfile: ./Dockerfile-fpm
