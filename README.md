@@ -4,6 +4,8 @@ Commission Calculator for deposit and withdrawal operation of private and busine
 
 ## Installation & Run
 
+ ### Docker and docker-compose is required to run the following commands
+
 * Pull the repository `git@github.com:alamsarker/commission-task.git`
 * Start Container: `make start`
 * Install Composer : `make composer-install`
@@ -14,9 +16,9 @@ Commission Calculator for deposit and withdrawal operation of private and busine
 
 ## Important Notes
 
-* Currency is converting for all types of opration, though the task said for withrawal operation for private client.
-* Added cacheing machanism for creating object in `ClientFacotry->create()` method.
-* Optimsed rate exchange api, loading config file by loading once for per command.
+* Currency is converting for all types of operation, though the task is said for withrawal operation for private client.
+* Added cacheing machanism for creating Client object in `ClientFacotry->create()` method.
+* Optimsed the rate exchange api, loading config file once for per command.
 
 
 ## Technology
