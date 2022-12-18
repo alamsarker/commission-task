@@ -1,7 +1,5 @@
 {
     "baseCurrency": "EUR",
-    "decimalPointDefault": 2,
-    "decimalPointJPY": 0,
     "bussinesDepositRate": 0.03,
     "businessWithdrawRate": 0.5,
     "privateDepositRate": 0.03,

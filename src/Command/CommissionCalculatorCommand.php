@@ -37,15 +37,7 @@ final class CommissionCalculatorCommand implements CommandInterface
     {
         $config = $this->jsonFileLoader->load(__DIR__ .'/../../config.json');
         $inputData = $this->csvFileLoader->load($input->getArg('param'));
-        $exchangeRate = [
-             'rates' => [
-                 'USD' => 1.1497,
-                 'JPY' => 129.53,
-                 'EUR' => 1,
-             ],
-             'base' => 'EUR'
-         ];
-        //$exchangeRate = $this->httpClient->sendRequest('GET', $config['currencyExchangeUrl']);
+        $exchangeRate = $this->httpClient->sendRequest('GET', $config['currencyExchangeUrl']);
 
         $this->converter->setRates($exchangeRate);
 
