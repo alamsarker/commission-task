@@ -22,6 +22,10 @@ class BusinessClientTest extends TestCase
         ]));
     }
 
+    /**
+     *
+     * @dataProvider dataProviderForPrivateWithdrawCommission
+     */
     public function testWithdrawCommission(Operation $operation, float $expectation)
     {
         $this->assertEquals(
