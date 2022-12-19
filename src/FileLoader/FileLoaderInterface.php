@@ -6,5 +6,8 @@ namespace App\FileLoader;
 
 interface FileLoaderInterface
 {
+    /**
+     * @return Generator|array
+     */
     public function load(string $sourcePath): mixed;
 }

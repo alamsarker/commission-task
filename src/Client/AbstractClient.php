@@ -15,14 +15,6 @@ abstract class AbstractClient
     ) {
     }
 
-    /**
-     * Calculate commission based on the rate and amount.
-     *
-     * @param float $amount - Commission will be calculated on the amount
-     * @param float $rate - Parcentage of the rate
-     *
-     * @return float Commissio will be return as float
-     */
     protected function calculate(float $amount, float $rate): float
     {
         $comission = 0;
@@ -33,12 +25,6 @@ abstract class AbstractClient
         return floatval($comission);
     }
 
-    /**
-     * Forwarding the client based on the input operation type
-     *
-     * @param Operation $operation - The input as Opration Model
-     * @return float - return the final commission
-     */
     public function getCommission(Operation $operation): float
     {
         $commission = match ($operation->getOperationType()) {

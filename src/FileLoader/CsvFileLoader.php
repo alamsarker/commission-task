@@ -10,6 +10,9 @@ final class CsvFileLoader implements FileLoaderInterface
     private const LENGTH = 4096;
     private const DELIMITER = ',';
 
+    /**
+     * @return Generator
+     */
     public function load(string $sourcePath): mixed
     {
         if (!file_exists($sourcePath)) {

@@ -8,6 +8,9 @@ final class JsonFileLoader implements FileLoaderInterface
 {
     private const SUPPORT_EXTENSION = 'json';
 
+    /**
+     * @return array
+     */
     public function load(string $sourcePath): mixed
     {
         if (!file_exists($sourcePath)) {
