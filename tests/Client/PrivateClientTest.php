@@ -11,9 +11,6 @@ use App\Configuration;
 
 class PrivateClientTest extends TestCase
 {
-    /**
-     * @var PrivteClient
-     */
     private static PrivateClient $privateClient;
 
     public static function setUpBeforeClass(): void
@@ -30,9 +27,6 @@ class PrivateClientTest extends TestCase
     }
 
     /**
-     * @param Operation $operation
-     * @param float $expectation
-     *
      * @dataProvider dataProviderForPrivateWithdrawCommission
      */
     public function testWithdrawCommission(Operation $operation, float $expectation)
@@ -44,9 +38,6 @@ class PrivateClientTest extends TestCase
     }
 
     /**
-     * @param Operation $operation
-     * @param float $expectation
-     *
      * @dataProvider dataProviderForPrivateDepositCommission
      */
     public function testDepositCommission(Operation $operation, float $expectation)

@@ -7,11 +7,8 @@ namespace App\Tests\Formatter;
 use PHPUnit\Framework\TestCase;
 use App\Formatter\RoundedUpFormatter;
 
-final class RoundedUpFormatterTest extends TestCase
+class RoundedUpFormatterTest extends TestCase
 {
-    /**
-     * Format the value
-     */
     public function testFormat()
     {
         $formatter = new RoundedUpFormatter();

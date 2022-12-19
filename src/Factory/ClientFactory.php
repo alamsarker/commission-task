@@ -18,17 +18,6 @@ final class ClientFactory
         'private' => PrivateClient::class,
     ];
 
-    /**
-     * Create the object of type AbstractClient.
-     *
-     * Client Factory uses cache machanism so that the single object is created for muliple calling
-     *
-     * @param string $serType - The type of the client - Private or Bussiness
-     * @param array $config - The global configuaration
-     *
-     * @return AbstractClient - Object of Client
-     *
-     */
     public function create(string $userType, array $config): AbstractClient
     {
         if (empty(self::$cached[$userType])) {

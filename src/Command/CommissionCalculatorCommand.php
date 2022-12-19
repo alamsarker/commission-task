@@ -73,8 +73,6 @@ final class CommissionCalculatorCommand implements CommandInterface
                 $commission->getCommission($operation)
             );
 
-
-
             $output->writeln($this->formatter->setCurrency($currency)->format($result));
         }
     }

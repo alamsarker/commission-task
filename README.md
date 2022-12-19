@@ -14,7 +14,7 @@ Commission Calculator for deposit and withdrawal operation of private and busine
 * Stop the container: `make stop`
 
 
-## Important Notes
+## Notes
 
 * Currency is converting for all types of operation, though the task is said for withrawal operation for private client.
 * Added cacheing machanism for creating Client object in `ClientFacotry->create()` method.

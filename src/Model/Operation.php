@@ -6,11 +6,6 @@ namespace App\Model;
 
 class Operation
 {
-    /**
-     * Constructor
-     *
-     * This class is used for making object of operation input
-     */
     public function __construct(
         private \DateTime $transDate,
         private int $userId,
@@ -21,7 +16,7 @@ class Operation
     ) {
     }
 
-    public function setTransDate($transDate)
+    public function setTransDate($transDate): self
     {
         $this->transDate = $transDate;
 
@@ -33,7 +28,7 @@ class Operation
         return $this->transDate;
     }
 
-    public function setUserId(int $userId)
+    public function setUserId(int $userId): self
     {
         $this->userId = $userId;
 
@@ -45,7 +40,7 @@ class Operation
         return $this->userId;
     }
 
-    public function setUserType(string $userType)
+    public function setUserType(string $userType): self
     {
         $this->userType = $userType;
 
@@ -57,7 +52,7 @@ class Operation
         return $this->userType;
     }
 
-    public function setOperationType(string $operationType)
+    public function setOperationType(string $operationType): self
     {
         $this->operationType = $operationType;
 
@@ -69,7 +64,7 @@ class Operation
         return $this->operationType;
     }
 
-    public function setAmount(float $amount)
+    public function setAmount(float $amount): self
     {
         $this->amount = $amount;
 
@@ -81,7 +76,7 @@ class Operation
         return $this->amount;
     }
 
-    public function setCurrency(string $currency)
+    public function setCurrency(string $currency): self
     {
         $this->currency = $currency;
 

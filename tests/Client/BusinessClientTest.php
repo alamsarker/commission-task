@@ -11,9 +11,6 @@ use App\Configuration;
 
 class BusinessClientTest extends TestCase
 {
-    /**
-     * @var BusinessClients
-     */
     private BusinessClient $BusinessClient;
 
     public function setup(): void
@@ -25,12 +22,6 @@ class BusinessClientTest extends TestCase
         ]));
     }
 
-    /**
-     * @param Operation $operation
-     * @param float $expectation
-     *
-     * @dataProvider dataProviderForPrivateWithdrawCommission
-     */
     public function testWithdrawCommission(Operation $operation, float $expectation)
     {
         $this->assertEquals(
@@ -40,8 +31,6 @@ class BusinessClientTest extends TestCase
     }
 
     /**
-     * @param Operation $operation
-     * @param float $expectation
      *
      * @dataProvider dataProviderForPrivateDepositCommission
      */

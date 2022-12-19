@@ -9,28 +9,13 @@ use App\Model\Operation;
 
 class PrivateClientWithdrawRule
 {
-    /**
-     * Input Operation
-     */
     private Operation $operation;
-
-    /**
-     * tracking the previous data for free eligibility calculation
-     */
     private array $tracker = [];
 
-    /**
-     * Constructor
-     *
-     * @param Configuration $config
-     */
     public function __construct(private Configuration $config)
     {
     }
 
-    /**
-     * Apply the rule based on the Operation
-     */
     public function onOperation(Operation $operation): self
     {
         $this->operation = $operation;
@@ -38,11 +23,6 @@ class PrivateClientWithdrawRule
         return $this;
     }
 
-    /**
-     * Apply is preparing the configuration to get ready to calling getRate() and getAmount() method
-     *
-     * @return void
-     */
     public function apply(): void
     {
         if (!$this->operation instanceof Operation) {
@@ -62,13 +42,6 @@ class PrivateClientWithdrawRule
         return sprintf('userID-%d-WeekNo-%d-%s', $userId, $weekNumber, $key);
     }
 
-    /**
-     * Get commission rate
-     * If free eligible then return the rate is 0
-     * Otherwise returing rate from config
-     *
-     * @return float - percentage of commission rate
-     */
     public function getRate(): float
     {
         $rate = $this->config->get('privateWithdrawRate');
@@ -79,11 +52,6 @@ class PrivateClientWithdrawRule
         return floatval($rate);
     }
 
-    /**
-     * Get the amount based on the eligibility checking
-     *
-     * @return float - the amount after calculating the free rule checking
-     */
     public function getAmount(): float
     {
         $alreadyExceededKey = $this->getKey('AlreadyExceeded');
@@ -100,15 +68,13 @@ class PrivateClientWithdrawRule
         return $amount;
     }
 
-    /**
-     * Checking free of commission
-     */
+
     private function isFreeOfCharge(): bool
     {
         if (
-            $this->isInWeekDays() &&
-            !$this->isExceededMaxAmountPerWeek() &&
-            !$this->isExceededMaxWithdrawLimitPerWeek()
+            $this->isInWeekDays()
+            && !$this->isExceededMaxAmountPerWeek()
+            && !$this->isExceededMaxWithdrawLimitPerWeek()
         ) {
             return true;
         }
@@ -116,11 +82,6 @@ class PrivateClientWithdrawRule
         return false;
     }
 
-    /**
-     * Checking the operations happens on weekday for free eligibility
-     *
-     * @return bool
-     */
     private function isInWeekDays(): bool
     {
         $transactAt = $this->operation->getTransDate();
@@ -134,11 +95,6 @@ class PrivateClientWithdrawRule
         return false;
     }
 
-    /**
-     * Checking the max amount weekly for free eligibilty
-     *
-     * @return bool
-     */
     private function isExceededMaxAmountPerWeek(): bool
     {
         $weeklyTotal = $this->tracker[$this->getKey('total')];
@@ -149,11 +105,6 @@ class PrivateClientWithdrawRule
         return false;
     }
 
-    /**
-     * Checking the max times of limit weekly
-     *
-     * @return bool - if exceeded then true otherwise false
-     */
     private function isExceededMaxWithdrawLimitPerWeek(): bool
     {
         $weeklyLimit = $this->tracker[$this->getKey('limit')];

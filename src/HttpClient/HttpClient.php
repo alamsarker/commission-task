@@ -6,9 +6,6 @@ namespace App\HttpClient;
 
 final class HttpClient
 {
-    /**
-     * Calling Api
-     */
     public function sendRequest($method, $url)
     {
         $curlHanlder = curl_init();

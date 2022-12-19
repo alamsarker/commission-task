@@ -18,11 +18,6 @@ use App\CurrencyConverter\BaseCurrencyConverter;
 
 final class CommissionCalculatorCommandFactory
 {
-    /**
-     * Create object of type CommandInterface
-     *
-     * @return CommandInterface - Return the object of type CommandInterface
-     */
     public function create(): CommandInterface
     {
         return new CommissionCalculatorCommand(
