@@ -1,6 +1,6 @@
 {
-    "name": "paysera/commission-task-skeleton",
-    "description": "Commission taask",
+    "name": "alamsarker/commission-task",
+    "description": "Commission task",
     "keywords": [],
     "type": "project",
     "autoload": {
