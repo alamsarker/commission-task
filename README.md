@@ -19,6 +19,7 @@ Commission Calculator for deposit and withdrawal operation of private and busine
 * Currency is converting for all types of operation, though the task is said for withrawal operation for private client.
 * Added cacheing machanism for creating Client object in `ClientFacotry->create()` method.
 * Optimsed the rate exchange api, loading config file once for per command.
+* Used set* method instead of constructor in `App\Formatter\RoundedUpFormatter` & `App\CurrencyConverter\BaseCurrencyConverter` classes as creating instance in consle file looks not good.
 
 
 ## Technology
